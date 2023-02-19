@@ -33,6 +33,8 @@ dependencies {
   runtimeOnly("org.postgresql:r2dbc-postgresql")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("io.projectreactor:reactor-test")
+  testRuntimeOnly("com.h2database:h2")
+  testRuntimeOnly("io.r2dbc:r2dbc-h2")
 }
 
 tasks.withType<KotlinCompile> {
