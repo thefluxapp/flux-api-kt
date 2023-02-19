@@ -4,8 +4,8 @@ on:
   push:
 
 jobs:
-  setup-java:
-    name: Setup Java
+  gradle-ktfmt:
+    name: Run Formatter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-java@v3
@@ -20,19 +20,24 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: |
             ${{ runner.os }}-gradle-
-
-  gradle-ktfmt:
-    name: Check Format
-    needs: setup-java
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v3
       - run: ./gradlew ktfmtCheck
 
   gradle-test:
     name: Run Tests
-    needs: setup-java
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: temurin
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       - uses: actions/checkout@v3
       - run: ./gradlew test
