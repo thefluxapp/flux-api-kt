@@ -10,10 +10,10 @@ public class UserRepo {
 
   // @Autowired
   // public UserRepo(DSLContext dslContext) {
-  //   this.dslContext = dslContext;
+  // this.dslContext = dslContext;
   // }
 
-  public void createWithRandomData () {
+  public void createWithRandomData() {
     System.out.println("USER REPO CREATE");
   }
 }

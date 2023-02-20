@@ -19,7 +19,7 @@ public class AuthController {
   }
 
   @PostMapping("auth")
-  Mono<ResponseEntity<String>> call () {
+  Mono<ResponseEntity<String>> call() {
     authService.call();
 
     return Mono.just(new ResponseEntity<>("HELLO!", HttpStatus.OK));
