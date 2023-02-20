@@ -1,9 +1,8 @@
 package flux.app.api.session;
 
+import flux.app.api.repositories.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import flux.app.api.repositories.UserRepo;
 
 @Service
 public class AuthService {
