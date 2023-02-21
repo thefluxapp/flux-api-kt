@@ -17,11 +17,10 @@ public class AuthService {
     this.userRepo = userRepo;
   }
 
-  void call() {
-    userRepo.save(new UserModel(RandomStringUtils.random(12, true, true)))
-        .subscribe(System.out::println);
-
-    // System.out.println(qq);
-    System.out.println("AUTH SERVICE");
+  Mono<UserModel> call() {
+    return userRepo.save(
+        new UserModel(
+            null, RandomStringUtils.random(12, true, true), null,
+            null, null, null));
   }
 }

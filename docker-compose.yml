@@ -4,6 +4,10 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
+      # SPRING_DATASOURCE_URL: jdbc:postgresql://flux-pg.flux.local/flux
+      # SPRING_DATASOURCE_USERNAME: postgres
+      # SPRING_DATASOURCE_PASSWORD: postgres
+
       SPRING_R2DBC_URL: r2dbc:pool:postgres://flux-pg.flux.local/flux
       SPRING_R2DBC_USERNAME: postgres
       SPRING_R2DBC_PASSWORD: postgres
