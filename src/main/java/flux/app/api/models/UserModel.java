@@ -11,6 +11,8 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Table("users")
 public record UserModel(
-    @Id UUID id, String login, Optional<String> first_name, Optional<String> last_name,
-    @CreatedDate LocalDateTime created_at, @LastModifiedDate LocalDateTime updated_at) {
+  @Id UUID id, String login, Optional<String> first_name, Optional<String> last_name,
+  @CreatedDate LocalDateTime created_at,
+  @LastModifiedDate LocalDateTime updated_at
+) {
 }
