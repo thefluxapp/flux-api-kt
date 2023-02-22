@@ -36,4 +36,5 @@ out/
 .vscode/
 
 ### Local ###
+.DS_Store
 .local
