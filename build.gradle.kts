@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   id("org.springframework.boot") version "3.0.2"
   id("io.spring.dependency-management") version "1.1.0"
+  id("com.ncorti.ktfmt.gradle") version "0.11.0"
   kotlin("jvm") version "1.7.22"
   kotlin("plugin.spring") version "1.7.22"
 }
@@ -45,4 +46,8 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
   useJUnitPlatform()
+}
+
+ktfmt {
+  googleStyle()
 }
