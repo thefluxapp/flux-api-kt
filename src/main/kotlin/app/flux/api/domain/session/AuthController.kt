@@ -7,12 +7,9 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api/session")
-class AuthController(
-        private val authService: AuthService
-) {
-    @PostMapping("auth")
-    suspend fun call(): UserModel {
-        return authService.createWithRandomLogin()
-    }
-
+class AuthController(private val authService: AuthService) {
+  @PostMapping("auth")
+  suspend fun call(): UserModel {
+    return authService.createWithRandomLogin()
+  }
 }

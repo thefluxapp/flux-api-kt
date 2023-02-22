@@ -9,6 +9,6 @@ class ApplicationTests {
 
   @Test
   fun contextLoads() {
-    assertEquals("Test","Test", "Test")
+    assertEquals("Test", "Test", "Test")
   }
 }

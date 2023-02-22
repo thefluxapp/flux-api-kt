@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service
 
 @Service
 class AuthService(private val userRepo: UserRepo) {
-    suspend fun createWithRandomLogin(): UserModel {
-        val user = UserModel(login = RandomStringUtils.random(12, true, true))
+  suspend fun createWithRandomLogin(): UserModel {
+    val user = UserModel(login = RandomStringUtils.random(12, true, true))
 
-        return userRepo.save(user)
-    }
+    return userRepo.save(user)
+  }
 }
