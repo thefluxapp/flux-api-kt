@@ -8,7 +8,7 @@ plugins {
   kotlin("plugin.spring") version "1.7.22"
 }
 
-group = "flux.app"
+group = "app.flux"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
@@ -17,20 +17,24 @@ repositories {
 }
 
 dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-actuator")
   implementation("org.springframework.boot:spring-boot-starter-data-r2dbc")
-  implementation("org.springframework.boot:spring-boot-starter-jooq")
   implementation("org.springframework.boot:spring-boot-starter-webflux")
+  implementation("org.springframework.boot:spring-boot-starter-security")
   implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
   implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
   implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
   implementation("org.liquibase:liquibase-core")
-  implementation("org.springframework:spring-jdbc")
+  implementation("io.jsonwebtoken:jjwt-api:0.11.5")
   developmentOnly("org.springframework.boot:spring-boot-devtools")
   runtimeOnly("io.micrometer:micrometer-registry-prometheus")
   runtimeOnly("org.postgresql:postgresql")
   runtimeOnly("org.postgresql:r2dbc-postgresql")
+  runtimeOnly ("io.jsonwebtoken:jjwt-impl:0.11.5")
+  runtimeOnly ("io.jsonwebtoken:jjwt-jackson:0.11.5")
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("io.projectreactor:reactor-test")
   testRuntimeOnly("com.h2database:h2")

@@ -1,4 +1,4 @@
-package flux.app.api
+package app.flux.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
