@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("api/session")
 class AuthController(private val authService: AuthService) {
   @PostMapping("auth")
-  suspend fun call(): String {
-    return authService.call()
+  suspend fun call(): AuthData {
+    val (user, token) = authService.call()
+
+    return AuthData(
+      user = AuthData.UserData(id = user.id!!, login = user.login),
+      jwt = AuthData.JwtData(token = token)
+    )
   }
 }

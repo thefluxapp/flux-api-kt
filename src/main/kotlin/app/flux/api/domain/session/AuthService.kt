@@ -9,10 +9,11 @@ import org.springframework.stereotype.Service
 
 @Service
 class AuthService(private val userRepo: UserRepo, private val authProperties: AuthProperties) {
-  suspend fun call(): String {
+  suspend fun call(): Pair<UserModel, String> {
     val user = userRepo.save(UserModel(login = RandomStringUtils.random(12, true, true)))
+    val token = generateToken(user)
 
-    return generateToken(user)
+    return Pair(user, token)
   }
 
   private fun generateToken(user: UserModel): String {
