@@ -2,18 +2,22 @@ package app.flux.api.domain.session
 
 import java.security.KeyPairGenerator
 import java.security.interfaces.RSAPrivateKey
+import java.security.interfaces.RSAPublicKey
 import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.stereotype.Component
 
 @Component
 @ConfigurationProperties(prefix = "auth")
 class AuthProperties {
-  final var privateKey: RSAPrivateKey = generateDefaultPrivateKey()
+  final var privateKey: RSAPrivateKey
+  final var publicKey: RSAPublicKey
 
-  private fun generateDefaultPrivateKey(): RSAPrivateKey {
-    val kpg = KeyPairGenerator.getInstance("RSA")
+  init {
+    val keyPairGenerator = KeyPairGenerator.getInstance("RSA")
+    keyPairGenerator.initialize(2048)
+    val keyPair = keyPairGenerator.generateKeyPair()
 
-    kpg.initialize(2048)
-    return kpg.generateKeyPair().private as RSAPrivateKey
+    privateKey = keyPair.private as RSAPrivateKey
+    publicKey = keyPair.public as RSAPublicKey
   }
 }
