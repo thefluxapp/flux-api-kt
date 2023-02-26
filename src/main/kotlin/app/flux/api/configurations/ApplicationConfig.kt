@@ -1,4 +1,4 @@
-package app.flux.api
+package app.flux.api.configurations
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
