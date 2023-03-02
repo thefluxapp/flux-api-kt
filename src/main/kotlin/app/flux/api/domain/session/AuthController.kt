@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RestController
 class AuthController(private val authService: AuthService) {
   @PostMapping("auth")
   suspend fun call(): AuthData {
-    val (user, token) = authService.call()
-
     return AuthData(
-      user = AuthData.UserData(id = user.id!!, login = user.login),
-      jwt = AuthData.JwtData(token = token)
+      accessToken = authService.call()
     )
   }
 }
