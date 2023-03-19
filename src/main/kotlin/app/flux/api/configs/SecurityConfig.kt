@@ -7,10 +7,10 @@ import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
 class SecurityConfig {
-  @Bean
-  fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
-    http.csrf().disable()
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+        http.csrf().disable()
 
-    return http.build()
-  }
+        return http.build()
+    }
 }

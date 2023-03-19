@@ -10,20 +10,20 @@ import org.springframework.web.server.ServerWebInputException
 
 @ControllerAdvice
 class ExceptionControllerAdvice {
-  @ExceptionHandler(value = [WebExchangeBindException::class])
-  fun handleWebExchangeBindException(
-    exception: WebExchangeBindException
-  ): ResponseEntity<List<FieldError>> {
-    // TODO: Create Error Class
-    val errors = exception.bindingResult.fieldErrors
+    @ExceptionHandler(value = [WebExchangeBindException::class])
+    fun handleWebExchangeBindException(
+        exception: WebExchangeBindException,
+    ): ResponseEntity<List<FieldError>> {
+        // TODO: Create Error Class
+        val errors = exception.bindingResult.fieldErrors
 
-    return ResponseEntity(errors, HttpStatus.UNPROCESSABLE_ENTITY)
-  }
+        return ResponseEntity(errors, HttpStatus.UNPROCESSABLE_ENTITY)
+    }
 
-  @ExceptionHandler(value = [ServerWebInputException::class])
-  fun handleServerWebInputException(exception: ServerWebInputException): ResponseEntity<Void> {
-    println(exception.javaClass)
+    @ExceptionHandler(value = [ServerWebInputException::class])
+    fun handleServerWebInputException(exception: ServerWebInputException): ResponseEntity<Void> {
+        println(exception.javaClass)
 
-    return ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY)
-  }
+        return ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY)
+    }
 }

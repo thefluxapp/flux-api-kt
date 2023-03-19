@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.web.servlet.MockMvc
 
 open class ControllerTests {
-  @Autowired lateinit var mockMvc: MockMvc
+    @Autowired lateinit var mockMvc: MockMvc
 
-  @MockkBean lateinit var authProperties: AuthProperties
+    @MockkBean lateinit var authProperties: AuthProperties
 
-  @MockkBean lateinit var userRepo: UserRepo
+    @MockkBean lateinit var userRepo: UserRepo
 
-  @MockkBean lateinit var authService: AuthService
+    @MockkBean lateinit var authService: AuthService
 }

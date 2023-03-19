@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class CreateMessageController(private val createMessageService: CreateMessageService) {
-  @PostMapping("api/messages")
-  fun call(
-    @Valid @RequestBody createMessageRequest: CreateMessageRequest,
-    authentication: Authentication?
-  ) {
-    println("authentication: ${authentication?.principal}")
-    createMessageService.call(createMessageRequest)
-  }
+    @PostMapping("api/messages")
+    fun call(
+        @Valid @RequestBody
+        createMessageRequest: CreateMessageRequest,
+        authentication: Authentication?,
+    ) {
+        println("authentication: ${authentication?.principal}")
+        createMessageService.call(createMessageRequest)
+    }
 }

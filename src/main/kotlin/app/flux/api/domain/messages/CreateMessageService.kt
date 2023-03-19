@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class CreateMessageService {
-  fun call(createMessageRequest: CreateMessageRequest) {
-    println(createMessageRequest)
-  }
+    fun call(createMessageRequest: CreateMessageRequest) {
+        println(createMessageRequest)
+    }
 }

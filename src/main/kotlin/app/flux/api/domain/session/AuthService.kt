@@ -8,16 +8,16 @@ import org.springframework.stereotype.Service
 
 @Service
 class AuthService(private val authProperties: AuthProperties, private val userRepo: UserRepo) {
-  fun call(): String {
-    val user = userRepo.save(UserModel(login = RandomStringUtils.random(12, true, true)))
+    fun call(): String {
+        val user = userRepo.save(UserModel(login = RandomStringUtils.random(12, true, true)))
 
-    return generateToken(user)
-  }
+        return generateToken(user)
+    }
 
-  private fun generateToken(user: UserModel): String {
-    return Jwts.builder()
-      .signWith(authProperties.privateKey)
-      .setSubject(user.id.toString())
-      .compact()
-  }
+    private fun generateToken(user: UserModel): String {
+        return Jwts.builder()
+            .signWith(authProperties.privateKey)
+            .setSubject(user.id.toString())
+            .compact()
+    }
 }

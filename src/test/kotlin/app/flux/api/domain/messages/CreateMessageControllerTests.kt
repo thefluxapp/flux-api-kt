@@ -12,10 +12,10 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @AutoConfigureMockMvc
 @WebMvcTest
 class CreateMessageControllerTests : ControllerTests() {
-  @MockkBean lateinit var createMessageService: CreateMessageService
+    @MockkBean lateinit var createMessageService: CreateMessageService
 
-  @Test
-  fun withoutToken_returnsUnauthorized() {
-    mockMvc.perform(get("/api/messages")).andExpect(status().isUnauthorized)
-  }
+    @Test
+    fun withoutToken_returnsUnauthorized() {
+        mockMvc.perform(get("/api/messages")).andExpect(status().isUnauthorized)
+    }
 }
