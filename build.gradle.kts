@@ -31,8 +31,12 @@ dependencies {
   runtimeOnly("org.postgresql:postgresql")
   runtimeOnly ("io.jsonwebtoken:jjwt-impl:0.11.5")
   runtimeOnly ("io.jsonwebtoken:jjwt-jackson:0.11.5")
-  testImplementation("org.springframework.boot:spring-boot-starter-test")
+  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+  testImplementation("org.springframework.boot:spring-boot-starter-test") {
+    exclude(module = "mockito-core")
+  }
   testImplementation("org.springframework.security:spring-security-test")
+  testImplementation("com.ninja-squad:springmockk:4.0.2")
   testRuntimeOnly("com.h2database:h2")
 }
 
