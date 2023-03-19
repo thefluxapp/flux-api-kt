@@ -6,13 +6,14 @@ import org.springframework.validation.FieldError
 import org.springframework.web.bind.annotation.ControllerAdvice
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.support.WebExchangeBindException
-import org.springframework.web.reactive.result.method.annotation.ResponseEntityExceptionHandler
 import org.springframework.web.server.ServerWebInputException
 
 @ControllerAdvice
 class ExceptionControllerAdvice {
   @ExceptionHandler(value = [WebExchangeBindException::class])
-  fun handleWebExchangeBindException(exception: WebExchangeBindException): ResponseEntity<List<FieldError>> {
+  fun handleWebExchangeBindException(
+    exception: WebExchangeBindException
+  ): ResponseEntity<List<FieldError>> {
     // TODO: Create Error Class
     val errors = exception.bindingResult.fieldErrors
 

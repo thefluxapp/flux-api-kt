@@ -7,8 +7,8 @@ import org.apache.commons.lang3.RandomStringUtils
 import org.springframework.stereotype.Service
 
 @Service
-class AuthService(private val userRepo: UserRepo, private val authProperties: AuthProperties) {
-  suspend fun call(): String {
+class AuthService(private val authProperties: AuthProperties, private val userRepo: UserRepo) {
+  fun call(): String {
     val user = userRepo.save(UserModel(login = RandomStringUtils.random(12, true, true)))
 
     return generateToken(user)

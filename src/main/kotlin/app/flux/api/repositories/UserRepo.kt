@@ -1,8 +1,7 @@
 package app.flux.api.repositories
 
 import app.flux.api.models.UserModel
-import java.util.*
-import org.springframework.data.repository.kotlin.CoroutineCrudRepository
-import org.springframework.stereotype.Repository
+import java.util.UUID
+import org.springframework.data.repository.CrudRepository
 
-@Repository interface UserRepo : CoroutineCrudRepository<UserModel, UUID>
+interface UserRepo : CrudRepository<UserModel, UUID>
