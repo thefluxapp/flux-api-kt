@@ -27,7 +27,7 @@ class CreateMessageControllerTests : ControllerTests() {
         mockMvc.perform(
             post("/api/messages")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(ObjectMapper().writeValueAsString(params))
+                .content(ObjectMapper().writeValueAsString(params)),
         ).andExpect(status().isForbidden)
     }
 
@@ -41,9 +41,7 @@ class CreateMessageControllerTests : ControllerTests() {
         mockMvc.perform(
             post("/api/messages")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(ObjectMapper().writeValueAsString(params))
+                .content(ObjectMapper().writeValueAsString(params)),
         ).andExpect(status().isOk)
     }
 }
-
-

@@ -10,13 +10,11 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
-
 @AutoConfigureMockMvc
 @WebMvcTest(AuthSessionController::class)
 class AuthSessionControllerTests : ControllerTests() {
     @MockkBean
     lateinit var authSessionService: AuthSessionService
-
 
     @Test
     fun withoutAnything_returnsToken() {

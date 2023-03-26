@@ -18,7 +18,7 @@ class CreateMessageController(private val createMessageService: CreateMessageSer
         createMessageRequest: CreateMessageRequest,
         authentication: Authentication?,
     ) {
-        println("createMessageRequest: ${createMessageRequest}")
+        println("createMessageRequest: $createMessageRequest")
         println("authentication: ${authentication?.principal}")
         createMessageService.createMessage(createMessageRequest)
     }
