@@ -1,6 +1,5 @@
-package app.flux.api.models.callbacks
+package app.flux.api.domain.user
 
-import app.flux.api.models.UserModel
 import org.springframework.data.relational.core.mapping.event.BeforeConvertCallback
 import org.springframework.stereotype.Component
 import java.util.UUID

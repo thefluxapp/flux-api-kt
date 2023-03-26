@@ -8,7 +8,7 @@ import java.security.interfaces.RSAPublicKey
 
 @Component
 @ConfigurationProperties(prefix = "auth")
-class AuthProperties {
+class AuthSessionProperties {
     final var privateKey: RSAPrivateKey
     final var publicKey: RSAPublicKey
 

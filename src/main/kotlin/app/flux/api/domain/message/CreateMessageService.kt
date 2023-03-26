@@ -1,10 +1,10 @@
-package app.flux.api.domain.messages
+package app.flux.api.domain.message
 
 import org.springframework.stereotype.Service
 
 @Service
 class CreateMessageService {
-    fun call(createMessageRequest: CreateMessageRequest) {
+    fun createMessage(createMessageRequest: CreateMessageRequest) {
         println(createMessageRequest)
     }
 }

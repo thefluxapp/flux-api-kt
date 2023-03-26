@@ -1,7 +1,7 @@
 package app.flux.api.configs
 
-import app.flux.api.domain.session.AuthProperties
-import app.flux.api.repositories.UserRepo
+import app.flux.api.domain.session.AuthSessionProperties
+import app.flux.api.domain.user.UserRepo
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.security.SignatureException
 import jakarta.servlet.FilterChain
@@ -17,7 +17,7 @@ import org.springframework.web.filter.GenericFilterBean
 import java.util.UUID
 
 @Configuration
-class JwtAuthFilter(private val authProperties: AuthProperties, private val userRepo: UserRepo) :
+class JwtAuthFilter(private val authSessionProperties: AuthSessionProperties, private val userRepo: UserRepo) :
     GenericFilterBean() {
     override fun doFilter(request: ServletRequest, response: ServletResponse, chain: FilterChain) {
         val token =
@@ -28,7 +28,7 @@ class JwtAuthFilter(private val authProperties: AuthProperties, private val user
         if (!token.isNullOrEmpty()) {
             try {
                 val parsedToken =
-                    Jwts.parserBuilder().setSigningKey(authProperties.publicKey).build().parseClaimsJws(token)
+                    Jwts.parserBuilder().setSigningKey(authSessionProperties.publicKey).build().parseClaimsJws(token)
 
                 val user = userRepo.findById(UUID.fromString(parsedToken.body.subject))
                 val authenticationToken =

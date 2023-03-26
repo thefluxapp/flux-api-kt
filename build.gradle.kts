@@ -27,6 +27,7 @@ dependencies {
     implementation("org.liquibase:liquibase-core")
     implementation("io.jsonwebtoken:jjwt-api:0.11.5")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    developmentOnly("com.h2database:h2")
     runtimeOnly("io.micrometer:micrometer-registry-prometheus")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")

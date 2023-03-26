@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("api/session")
-class AuthController(private val authService: AuthService) {
+class AuthSessionController(private val authSessionService: AuthSessionService) {
     @PostMapping("auth")
-    fun call(): AuthData {
-        return AuthData(accessToken = authService.call())
+    fun authSession(): AuthSessionResponse {
+//        TODO: Create mapper between sesrive and response
+        return AuthSessionResponse(accessToken = authSessionService.authSession())
     }
 }

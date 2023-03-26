@@ -1,4 +1,4 @@
-package app.flux.api.models
+package app.flux.api.domain.user
 
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id

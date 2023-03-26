@@ -1,6 +1,5 @@
-package app.flux.api.repositories
+package app.flux.api.domain.user
 
-import app.flux.api.models.UserModel
 import org.springframework.data.repository.CrudRepository
 import java.util.UUID
 

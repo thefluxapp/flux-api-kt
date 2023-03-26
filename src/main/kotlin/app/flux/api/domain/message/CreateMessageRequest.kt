@@ -1,4 +1,4 @@
-package app.flux.api.domain.messages
+package app.flux.api.domain.message
 
 import jakarta.validation.constraints.NotEmpty
 

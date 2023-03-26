@@ -35,6 +35,9 @@ out/
 ### VS Code ###
 .vscode/
 
+### Fleet ###
+.fleet/
+
 ### Local ###
 .DS_Store
 .local
