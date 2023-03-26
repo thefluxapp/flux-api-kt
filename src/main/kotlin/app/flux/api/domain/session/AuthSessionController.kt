@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class AuthSessionController(private val authSessionService: AuthSessionService) {
     @PostMapping("auth")
     fun authSession(): AuthSessionResponse {
-//        TODO: Create mapper between sesrive and response
+//        TODO: Create mapper between service and response
         return AuthSessionResponse(accessToken = authSessionService.authSession())
     }
 }
