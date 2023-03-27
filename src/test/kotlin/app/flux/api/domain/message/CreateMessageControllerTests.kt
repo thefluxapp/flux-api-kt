@@ -19,7 +19,7 @@ class CreateMessageControllerTests : ControllerTests() {
     lateinit var createMessageService: CreateMessageService
 
     @Test
-    fun withoutToken_returnsUnauthorized() {
+    fun withoutToken_returns403() {
         val params = hashMapOf("text" to "TEXT")
 
         every { createMessageService.createMessage(any()) } returns Unit
@@ -29,6 +29,16 @@ class CreateMessageControllerTests : ControllerTests() {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(ObjectMapper().writeValueAsString(params)),
         ).andExpect(status().isForbidden)
+    }
+
+    @Test
+    fun withoutBody_returns422() {
+        every { createMessageService.createMessage(any()) } returns Unit
+
+        mockMvc.perform(
+            post("/api/messages")
+                .contentType(MediaType.APPLICATION_JSON)
+            ).andExpect(status().isUnprocessableEntity)
     }
 
     @Test
@@ -44,4 +54,5 @@ class CreateMessageControllerTests : ControllerTests() {
                 .content(ObjectMapper().writeValueAsString(params)),
         ).andExpect(status().isOk)
     }
+
 }

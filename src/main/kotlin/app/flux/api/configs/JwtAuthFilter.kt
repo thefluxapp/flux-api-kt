@@ -8,6 +8,7 @@ import jakarta.servlet.FilterChain
 import jakarta.servlet.ServletRequest
 import jakarta.servlet.ServletResponse
 import jakarta.servlet.http.HttpServletRequest
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpHeaders
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
@@ -41,10 +42,14 @@ class JwtAuthFilter(private val authSessionProperties: AuthSessionProperties, pr
                 SecurityContextHolder.getContext().authentication = authenticationToken
             } catch (e: SignatureException) {
                 // TODO: Process it
-                print("EX: $e")
+                log.info("[JwtAuthFilter] SignatureException: token=$token")
             }
         }
 
         chain.doFilter(request, response)
+    }
+
+    companion object {
+        private val log = LoggerFactory.getLogger(JwtAuthFilter::class.java)
     }
 }
