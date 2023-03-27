@@ -37,8 +37,8 @@ class CreateMessageControllerTests : ControllerTests() {
 
         mockMvc.perform(
             post("/api/messages")
-                .contentType(MediaType.APPLICATION_JSON)
-            ).andExpect(status().isUnprocessableEntity)
+                .contentType(MediaType.APPLICATION_JSON),
+        ).andExpect(status().isUnprocessableEntity)
     }
 
     @Test
@@ -54,5 +54,4 @@ class CreateMessageControllerTests : ControllerTests() {
                 .content(ObjectMapper().writeValueAsString(params)),
         ).andExpect(status().isOk)
     }
-
 }
