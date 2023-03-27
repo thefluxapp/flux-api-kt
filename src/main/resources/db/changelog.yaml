@@ -1,10 +1,10 @@
 databaseChangeLog:
-- changeSet:
-    id: enable-uuid
-    author: Andrei Brizhinev <bragovo@gmail.com>
-    changes:
-      - sql:
-          sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
+# - changeSet:
+#   id: enable-uuid
+#   author: Andrei Brizhinev <bragovo@gmail.com>
+#   changes:
+#     - sql:
+#         sql: CREATE EXTENSION IF NOT EXISTS "uuid-ossp"
 - includeAll:
     path: ./changelog
     relativeToChangelogFile: true

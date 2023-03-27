@@ -6,9 +6,8 @@ import org.springframework.test.util.AssertionErrors.assertEquals
 
 @SpringBootTest
 class ApplicationTests {
-
-  @Test
-  fun contextLoads() {
-    assertEquals("Test", "Test", "Test")
-  }
+    @Test
+    fun contextLoads() {
+        assertEquals("Test", "Test", "Test")
+    }
 }

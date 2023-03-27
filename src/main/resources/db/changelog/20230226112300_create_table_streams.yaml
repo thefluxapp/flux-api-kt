@@ -1,10 +1,10 @@
 databaseChangeLog:
   - changeSet:
-      id: 20230219213308_create_table_users
+      id: 20230226112300_create_table_streams
       author: Andrei Brizhinev <bragovo@gmail.com>
       changes:
         - createTable:
-            tableName: users
+            tableName: streams
             columns:
               - column:
                   name: id
@@ -12,20 +12,12 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: login
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
-              - column:
-                  name: first_name
-                  type: varchar(255)
+                  name: user_id
+                  type: uuid
                   constraints:
                     nullable: true
-              - column:
-                  name: last_name
-                  type: varchar(255)
-                  constraints:
-                    nullable: true
+                    foreignKeyName: streams_user_id_fkey
+                    references: users(id)
               - column:
                   name: created_at
                   type: TIMESTAMP WITHOUT TIME ZONE

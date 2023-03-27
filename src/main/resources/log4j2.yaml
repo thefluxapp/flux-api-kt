@@ -1,0 +1,14 @@
+Configuration:
+    Appenders:
+        Console:
+            name: Console
+            target: SYSTEM_OUT
+            follow: true
+            JsonLayout:
+                compact: false
+
+    Loggers:
+        Root:
+            level: info
+            AppenderRef:
+                - ref: Console
